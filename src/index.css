@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* For Dark Mode Funtionality */
+#box.light{
+    background-color: white;
+    color: black;
+}
+#box.dark{
+    background-color: #242424;
+    color: white;
+}
+
+/* For Border of Input Field */
+#inputField.light{
+    outline: auto;
+    color: rgb(26, 66, 66);
+}
+#inputField.dark{
+    outline: none;
+}
+
+/* For Background Color of Cards */
+.card.light{
+    background-color: rgb(182, 211, 201);
+}
+.card.dark{
+    background-color: #242121;
+}
+
+/* For scrollBar */
+::-webkit-scrollbar-thumb{
+    background: rgb(57, 47, 47);
+}
