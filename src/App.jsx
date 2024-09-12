@@ -17,7 +17,7 @@ function App() {
     const city = document.getElementById("cityName");
 
     if(val){
-      fetch(`http://api.weatherapi.com/v1/current.json?key=7d4d42c463494c43b16115458240405&q=${val}&aqi=no`)
+      fetch(`https://api.weatherapi.com/v1/current.json?key=7d4d42c463494c43b16115458240405&q=${val}&aqi=no`)
       .then((res) => res.json())
       .then((item) => {
 
