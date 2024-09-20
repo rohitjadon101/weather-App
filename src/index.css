@@ -33,3 +33,8 @@
 ::-webkit-scrollbar-thumb{
     background: rgb(57, 47, 47);
 }
+
+/* For wrapper class */
+.wrapper.light{
+    background-color: white;
+}

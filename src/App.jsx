@@ -17,7 +17,7 @@ function App() {
     const city = document.getElementById("cityName");
 
     if(val){
-      fetch(`http://api.weatherapi.com/v1/current.json?key=7d4d42c463494c43b16115458240405&q=${val}&aqi=no`)
+      fetch(`https://api.weatherapi.com/v1/current.json?key=7d4d42c463494c43b16115458240405&q=${val}&aqi=no`)
       .then((res) => res.json())
       .then((item) => {
 
@@ -42,7 +42,7 @@ function App() {
   }
 
   // Functionality for Dark Mode
-  const [themeMode,setThemeMode] = useState("light");
+  const [themeMode,setThemeMode] = useState("dark");
 
   const DarkMode = () => {
     if(themeMode === "light"){
@@ -67,16 +67,20 @@ function App() {
       card.classList.add(themeMode);
     })
 
+    // This is for wrapper class in mobile view
+    document.querySelector(".wrapper").classList.remove("light","dark");
+    document.querySelector(".wrapper").classList.add(themeMode);
+
   },[themeMode]);
 
   return (
     <>
-    <div className="w-full h-screen bg-[#242424] flex flex-col justify-center items-center">
+    <div className="w-full h-screen bg-[#242424] flex flex-col items-center">
       {/* This is Weather App wrapper */}
-      <div className='w-[40%]  border-2 rounded-lg'>
+      <div className='wrapper sm:w-1/2 w-full sm:h-3/4 h-full sm:border-2 sm:rounded'>
 
         {/* This is For Header */}
-        <div className="flex justify-between py-5 rounded-t-lg text-[#2b1c1f] font-bold bg-slate-600">
+        <div className="flex justify-between py-5 sm:rounded-t-lg px-2 text-zinc-400 font-bold bg-zinc-600">
             <div className='w-[40px] h-[40px] overflow-hidden'>
               <button onClick={DarkMode}><img src="https://c8.alamy.com/comp/2FKTDCK/dark-mode-switch-logo-icon-vector-day-night-switch-sticker-dark-and-light-mode-switcher-day-and-night-mode-gadget-application-vector-on-isolated-2FKTDCK.jpg" alt="Night Mode" className='w-full h-full object-cover rounded-full'/></button>
             </div>
@@ -96,10 +100,10 @@ function App() {
           {/* This is for Card Container */}
           <div className='flex flex-col justify-center items-center mt-4'>
             <h1 className='text-lg font-bold text-blue-700' id='cityName'>Enter The City</h1>
-            <div className='w-full flex gap-2 p-5 overflow-x-scroll'>
+            <div className='w-full flex gap-2 py-5 overflow-x-scroll'>
 
-              <div className="border flex flex-col justify-around p-4 rounded-lg card">
-                <div className='w-[150px] h-[80px] overflow-hidden'>
+              <div className="border flex flex-col justify-around items-center p-4 rounded-lg card">
+                <div className='sm:w-[150px] sm:h-[80px] w-[120px] h-[70px] overflow-hidden'>
                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYYkwQOhasvnT_SaZDxLtjoRpkUtAI1IUODA&s" alt="Logo" className='w-full h-full object-cover rounded' />
                 </div>
                 <div className='flex flex-col justify-center items-center mt-4'>
@@ -108,8 +112,8 @@ function App() {
                 </div>
               </div>
 
-              <div className="border flex flex-col justify-around p-4 rounded-lg card">
-                <div className='w-[150px] h-[80px] overflow-hidden'>
+              <div className="border flex flex-col justify-around items-center p-4 rounded-lg card">
+                <div className='sm:w-[150px] sm:h-[80px] w-[120px] h-[70px] overflow-hidden'>
                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzW0_E4nj-VfUU_r5IZ-sokUTBtENwE3Y_OdQqDcW9hlls7sZrei3ELWklgEN-K_tK1oA&usqp=CAU" alt="Logo" className='w-full h-full object-cover rounded' />
                 </div>
                 <div className='flex flex-col justify-center items-center mt-4'>
@@ -118,8 +122,8 @@ function App() {
                 </div>
               </div>
 
-              <div className="border flex flex-col justify-around p-4 rounded-lg card">
-              <div className='w-[150px] h-[80px] overflow-hidden'>
+              <div className="border flex flex-col justify-around items-center p-4 rounded-lg card">
+              <div className='sm:w-[150px] sm:h-[80px] w-[120px] h-[70px] overflow-hidden'>
                   <img src={img2} alt="Logo" className='rounded' />
                 </div>
                 <div className='flex flex-col justify-center items-center mt-4'>
@@ -128,8 +132,8 @@ function App() {
                 </div>
               </div>
 
-              <div className="border flex flex-col justify-around p-4 rounded-lg card">
-                <div className='w-[150px] h-[80px] overflow-hidden'>
+              <div className="border flex flex-col justify-around items-center p-4 rounded-lg card">
+                <div className='sm:w-[150px] sm:h-[80px] w-[120px] h-[70px] overflow-hidden'>
                   <img src="https://www.shutterstock.com/image-vector/humidity-icon-weather-sensor-label-260nw-501091528.jpg" alt="Logo" className='w-full h-full object-cover rounded' />
                 </div>
                 <div className='flex flex-col justify-center items-center mt-4'>
@@ -138,8 +142,8 @@ function App() {
                 </div>
               </div>
 
-              <div className="border flex flex-col justify-around p-4 rounded-lg card">
-                <div className='w-[150px] h-[80px] overflow-hidden'>
+              <div className="border flex flex-col justify-around items-center p-4 rounded-lg card">
+                <div className='sm:w-[150px] sm:h-[80px] w-[120px] h-[70px] overflow-hidden'>
                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRefMsFHbEi8vsnC0yUWACfGhjr0V7YLA7sKA&s" alt="Logo" className='w-full h-full object-cover rounded' />
                 </div>
                 <div className='flex flex-col justify-center items-center mt-4'>
@@ -151,6 +155,11 @@ function App() {
             </div>
           </div>
 
+        </div>
+
+        {/* This is for mobile view */}
+        <div className='sm:hidden mt-10 flex justify-center'>
+            <div className='w-1/2 h-1 bg-zinc-500 rounded-lg'></div>
         </div>
 
       </div>
